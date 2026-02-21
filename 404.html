@@ -1,18 +1,215 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tá com saudades?</title>
-    <script src="scprit.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Página não encontrada | Start Soluções Digitais</title>
+
+  <!-- Garante que os paths sejam relativos no GitHub Pages -->
+  <base href="./" />
+
+  <style>
+    :root{
+      --bg: #07070b;
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --purple: #7c3aed;
+      --purple2:#a855f7;
+      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(124,58,237,.35), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(168,85,247,.20), transparent 60%),
+                  radial-gradient(900px 600px at 50% 110%, rgba(124,58,237,.18), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px 18px;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:100%; max-width: var(--max); }
+
+    .card{
+      border-radius: calc(var(--radius) + 6px);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: radial-gradient(650px 260px at 30% 0%, rgba(124,58,237,.22), transparent 70%),
+                  radial-gradient(520px 240px at 90% 40%, rgba(168,85,247,.18), transparent 65%);
+      pointer-events:none;
+    }
+    .inner{
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(7,7,11,.55);
+      padding: 18px;
+    }
+
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 220px;
+    }
+    .brandLogo{
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 6px;
+    }
+    .brand small{ display:block; color: var(--muted); font-weight: 700; margin-top: 2px; }
+
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 12px;
+      white-space:nowrap;
+    }
+    .dot{
+      width: 9px; height: 9px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--purple), var(--purple2));
+      box-shadow: 0 0 0 5px rgba(124,58,237,.18);
+    }
+
+    h1{
+      margin: 6px 0 8px;
+      font-size: clamp(28px, 4.5vw, 46px);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+    }
+    p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 15px;
+      max-width: 70ch;
+    }
+
+    .row{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+      margin-top: 14px;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      border-radius: 14px;
+      padding: 11px 14px;
+      font-weight: 800;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.16); }
+
+    .btn.primary{
+      border: 1px solid rgba(124,58,237,.55);
+      background: linear-gradient(135deg, rgba(124,58,237,.92), rgba(168,85,247,.78));
+      box-shadow: 0 16px 42px rgba(124,58,237,.25);
+    }
+
+    .hint{
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      color: rgba(255,255,255,.86);
+    }
+
+    @media (max-width: 640px){
+      .top{ flex-direction:column; align-items:flex-start; }
+      .badge{ align-self:flex-start; }
+    }
+  </style>
 </head>
 
 <body>
-    <div id="content">
-        <h2>Tá com saudades?</h2>
-        <button class="btn" onclick="sim()">SIM</button>
-        <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)">NÃO</button>
-    </div>      
+  <div class="container">
+    <div class="card">
+      <div class="inner">
+        <div class="top">
+          <a class="brand" href="./" aria-label="Voltar para a página inicial">
+            <!-- Use o mesmo caminho do seu logo -->
+            <img class="brandLogo" src="assets/img/logo.png" alt="Logo Start Soluções Digitais" />
+            <div>
+              <div style="font-weight:900;">Start</div>
+              <small>Soluções Digitais</small>
+            </div>
+          </a>
+
+          <div class="badge">
+            <span class="dot" aria-hidden="true"></span>
+            Erro 404
+          </div>
+        </div>
+
+        <h1>Página não encontrada</h1>
+        <p>
+          O link que você tentou acessar não existe (ou foi movido).
+          Volte para a página inicial ou fale com a gente.
+        </p>
+
+        <div class="row">
+          <a class="btn primary" href="./">Ir para a Home</a>
+          <a class="btn" href="./#contato">Abrir Contato</a>
+        </div>
+
+        <div class="hint">
+          Se você está vendo isso no GitHub Pages, confirme se o arquivo existe e se o nome bate exatamente (maiúsculas/minúsculas).
+          Ex.: <code>assets/img/logo.png</code> é diferente de <code>assets/img/Logo.png</code>.
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
