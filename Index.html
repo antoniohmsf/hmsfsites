@@ -34,7 +34,12 @@
     }
 
     a{ color:inherit; text-decoration:none; }
-    .container{ width:100%; max-width: var(--max); margin:0 auto; padding: 0 20px; }
+    .container{
+      width:100%;
+      max-width: var(--max);
+      margin:0 auto;
+      padding: 0 24px; /* premium spacing */
+    }
 
     /* Header */
     header{
@@ -42,15 +47,15 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(14px);
-      background: rgba(7,7,11,.55);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: rgba(7,7,11,.62); /* refined */
+      border-bottom: 1px solid rgba(255,255,255,.07);
     }
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 14px 0;
-      gap: 16px;
+      padding: 12px 0;
+      gap: 18px;
     }
 
     /* ✅ Logo PNG */
@@ -58,11 +63,11 @@
       display:flex; align-items:center; gap:12px;
       font-weight: 800;
       letter-spacing: .2px;
-      min-width: 240px;
+      min-width: unset; /* better for mobile */
     }
     .brandLogo{
-      width: 46px;
-      height: 46px;
+      width: 44px;
+      height: 44px;
       display:block;
       object-fit: contain;
       border-radius: 12px;
@@ -76,8 +81,8 @@
       color: var(--muted);
       font-weight: 600;
       font-size: 14px;
-      padding: 10px 10px;
-      border-radius: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
       transition: .2s ease;
       white-space:nowrap;
     }
@@ -86,16 +91,17 @@
     .ctaRow{ display:flex; gap: 10px; align-items:center; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      border-radius: 14px;
-      padding: 11px 14px;
+      border-radius: 16px;
+      padding: 12px 14px;
       font-weight: 700;
       font-size: 14px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.06);
       color: var(--text);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, filter .15s ease;
       box-shadow: 0 10px 24px rgba(0,0,0,.20);
       cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
     }
     .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.16); }
     .btn.primary{
@@ -109,13 +115,13 @@
 
     /* Hero */
     .hero{
-      padding: 66px 0 28px;
+      padding: 56px 0 22px; /* refined */
       position:relative;
     }
     .gridHero{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 28px;
+      gap: 22px; /* refined */
       align-items: center;
     }
     .badge{
@@ -134,7 +140,7 @@
       box-shadow: 0 0 0 5px rgba(124,58,237,.18);
     }
     h1{
-      margin: 16px 0 10px;
+      margin: 16px 0 12px;
       font-size: clamp(34px, 4.5vw, 56px);
       line-height: 1.04;
       letter-spacing: -0.02em;
@@ -143,7 +149,7 @@
       margin: 0 0 18px;
       color: var(--muted);
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.7;
       max-width: 56ch;
     }
     .heroActions{
@@ -153,9 +159,9 @@
     .stats{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
+      gap: 12px;
       margin-top: 18px;
-      max-width: 620px;
+      max-width: 720px;
     }
     .stat{
       border: 1px solid rgba(255,255,255,.10);
@@ -164,7 +170,7 @@
       padding: 14px 14px;
       box-shadow: var(--shadow);
     }
-    .stat b{ display:block; font-size: 16px; }
+    .stat b{ display:block; font-size: 15px; }
     .stat span{ display:block; color: var(--muted); font-weight: 650; font-size: 12px; margin-top: 4px; }
 
     .heroCard{
@@ -234,11 +240,11 @@
     .li p{ margin:0; color: var(--muted); font-size: 12.5px; line-height: 1.45;}
 
     /* Sections */
-    section{ padding: 36px 0; }
+    section{ padding: 34px 0; }
     .sectionHead{
       display:flex; align-items:flex-end; justify-content:space-between;
       gap: 16px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     .sectionHead h2{
       margin:0;
@@ -303,22 +309,22 @@
       gap: 14px;
     }
     .shot{
-      border-radius: var(--radius);
+      border-radius: 18px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
       min-height: 190px;
-      aspect-ratio: 4 / 3; /* mantém proporção agradável */
+      aspect-ratio: 4 / 3;
     }
     .shot img{
       width: 100%;
       height: 100%;
-      object-fit: cover; /* preenche sem distorcer */
+      object-fit: cover;
       display:block;
       filter: saturate(1.05) contrast(1.03);
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
     .shotOverlay{
       position:absolute; inset:0;
@@ -381,17 +387,66 @@
     .muted{ color: var(--muted); }
     .row{ display:flex; gap: 10px; flex-wrap:wrap; align-items:center; }
     .sep{ height:1px; background: rgba(255,255,255,.08); margin: 18px 0; }
-    .hamb{ display:none; }
+
+    /* =========================
+       RESPONSIVO REFINADO
+    ========================= */
+
+    /* Tablet */
+    @media (max-width: 1024px){
+      .container{ padding: 0 20px; }
+
+      .gridHero{ grid-template-columns: 1fr; }
+
+      .cards{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .portfolioGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      form{ grid-template-columns: 1fr; }
+    }
 
     /* Mobile */
     @media (max-width: 920px){
-      .gridHero{ grid-template-columns: 1fr; }
+      nav ul{ display:none; }
+      .hamb{ display:inline-flex; }
+
+      .nav{ gap: 12px; }
+
+      .hero{ padding: 44px 0 18px; }
+
+      h1{
+        font-size: clamp(30px, 8vw, 40px);
+        line-height: 1.06;
+      }
+
+      .heroActions{ gap: 10px; }
+
+      /* Stats: 2 colunas no mobile */
+      .stats{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .cards{ grid-template-columns: 1fr; }
       .twoCol{ grid-template-columns: 1fr; }
       .portfolioGrid{ grid-template-columns: 1fr; }
       form{ grid-template-columns: 1fr; }
-      nav ul{ display:none; }
-      .hamb{ display:inline-flex; }
+
+      /* Botões mais confortáveis em telas pequenas */
+      .ctaRow .btn{ padding: 12px 13px; }
+
+      /* Ajuste de espaçamento do brand no mobile */
+      .brandLogo{ width: 42px; height: 42px; }
+    }
+
+    /* Mobile pequeno (ex: 360px) */
+    @media (max-width: 420px){
+      .container{ padding: 0 16px; }
+
+      .ctaRow{ gap: 8px; }
+      .btn{ font-size: 13px; padding: 12px 12px; }
+
+      /* Stats: 1 coluna em telas bem pequenas (evita esmagar) */
+      .stats{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -645,7 +700,6 @@
         </div>
 
         <div class="portfolioGrid">
-          <!-- ✅ Troque src/alt/título/descrição -->
           <figure class="shot">
             <img src="assets/img/portfolio-01.png" alt="Projeto de identidade visual - Gêmeos Negócios" loading="lazy" />
             <div class="shotOverlay" aria-hidden="true"></div>
